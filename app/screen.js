@@ -76,7 +76,7 @@ function requestUpdate() {
     drawing = true;
     rAFIndex = rAF(updateDisplay);
   }
-} 
+}
 
 // Show cursors on the screen.
 function updateDisplay() {
@@ -86,6 +86,9 @@ function updateDisplay() {
     var y = cursor.y * (height * .5);
     var trans = `translate3d(${x}px,${y}px,0)`;
     cursor.dom.style.webkitTransform = cursor.dom.style.transform = trans;
+    if (x > 0 && x < 300) {
+      setInterval('cornify_add()', 1000);
+    }
   }
 
   drawing = false;
